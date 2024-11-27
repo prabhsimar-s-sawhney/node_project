@@ -3,9 +3,8 @@ const {adminAuth, userAuth} = require("./midddleware/auth");
 
 const app = express();
 
-//Authentication (middlewares)
+//admin authentication (middlewares)
 app.use('/admin', adminAuth)
-app.use('/user', userAuth)
 
 
 //admin APIs
@@ -18,7 +17,14 @@ app.delete('/admin/deleteUserData', (req, res)=>{
 })
 
 
-//user APIs
+//user APIs and authentication
+
+app.post('/user/login', (req, res, next) => {
+    res.send('Login API')
+})
+
+app.use('/user', userAuth)
+
 app.get("/user/:id", 
     [(req, res, next)=>{
         console.log('next1');
