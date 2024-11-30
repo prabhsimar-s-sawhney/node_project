@@ -1,3 +1,4 @@
+//admin APIs authenticator
 function adminAuth(req, res, next) {
     const token = 'xyz';
     if(token==='xyz'){
@@ -8,6 +9,7 @@ function adminAuth(req, res, next) {
     }
 }
 
+//user APIs authenticator
 function userAuth(req, res, next) {
     const token = 'xyz';
     if(token==='xyzdd'){
